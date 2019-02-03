@@ -8,6 +8,8 @@
 # RFE validate the pre_bm_osp14.sh has been run
 
 su - stack
+mkdir ~/images
+mkdir ~/templates
 
 #get file
 wget http://file.tlv.redhat.com/~tshefi/bm/instackenvAll.json

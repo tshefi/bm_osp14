@@ -23,12 +23,6 @@ echo stack | passwd stack --stdin
 echo "stack ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/stack
 chmod 0440 /etc/sudoers.d/stack
 
-#Create stack user
-su - stack
-mkdir ~/images
-mkdir ~/templates
-
-
 #Fix remove/reinstall repos
 sudo yum remove -y rhos-release
 sudo rpm -ivh http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
