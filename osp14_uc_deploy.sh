@@ -20,8 +20,6 @@ sudo yum install -y python-tripleoclient
 sudo yum install -y ceph-ansible
 
 
-
-
-
+#3.2. Preparing container images
 
 
