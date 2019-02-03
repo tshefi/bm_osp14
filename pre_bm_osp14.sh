@@ -38,8 +38,8 @@ sudo rhos-release 10-director > /home/stack/version.txt
 
 
 #Get post reboot next script
-wget
-chmod +x
+wget https://raw.githubusercontent.com/tshefi/bm_osp14/master/osp14_uc_deploy.sh
+chmod +x /home/stack/osp14_uc_deploy.sh
 
 #update+reboot
 sudo yum update -y
