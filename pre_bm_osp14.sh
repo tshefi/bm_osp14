@@ -28,7 +28,7 @@ sudo yum remove -y rhos-release
 sudo rpm -ivh http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
 sudo rm -rf /etc/yum.repos.d/*
 sudo rm -rf /var/cache/yum/*
-sudo rhos-release 10-director > /home/stack/version.txt
+sudo rhos-release 14-director > /home/stack/version.txt
 
 
 #Get post reboot next script
