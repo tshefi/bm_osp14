@@ -18,10 +18,10 @@ yum remove puppet* -y
 # 3.1. Preparing the undercloud
 #create user stack pass stack
 useradd stack
-passwd stack
+echo stack | passwd stack --stdin
 echo "stack ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/stack
 chmod 0440 /etc/sudoers.d/stack
-echo  "127.0.0.1   "$(hostname)"  "$(hsotname -s)  >> /etc/hosts
+echo  "127.0.0.1   "$(hostname)"  "$(hostname -s)  >> /etc/hosts
 
 #Create stack user
 su - stack
