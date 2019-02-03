@@ -24,11 +24,11 @@ echo "stack ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/stack
 chmod 0440 /etc/sudoers.d/stack
 
 #Fix remove/reinstall repos
-sudo yum remove -y rhos-release
-sudo rpm -ivh http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
-sudo rm -rf /etc/yum.repos.d/*
-sudo rm -rf /var/cache/yum/*
-sudo rhos-release 14-director > /home/stack/version.txt
+yum remove -y rhos-release
+rpm -ivh http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
+rm -rf /etc/yum.repos.d/*
+rm -rf /var/cache/yum/*
+rhos-release 14-director > /home/stack/version.txt
 
 
 #Get post reboot next script
@@ -37,5 +37,5 @@ chmod +x /home/stack/osp14_uc_deploy.sh
 
 
 #update+reboot
-sudo yum update -y
-sudo reboot
+yum update -y
+reboot
