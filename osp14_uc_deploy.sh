@@ -15,6 +15,9 @@ mkdir ~/templates
 wget http://file.tlv.redhat.com/~tshefi/bm/instackenvAll.json
 
 
+sudo yum install -y python-tripleoclient
+#Needed only if we deploy with ceph, but doesn't hurt to add now.
+sudo yum install -y ceph-ansible
 
 
 
