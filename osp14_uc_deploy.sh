@@ -70,12 +70,17 @@ openstack overcloud node import ~/instackenvAll.json
 
 
 #6.3. Tagging nodes into profiles
-# ----------- add logic to tag nodes contorller/compute
-#openstack baremetal node set --property capabilities='profile:compute,boot_option:local' 58c3d07e-24f2-48a7-bbb6-6843f0e8ee13
-#openstack baremetal node set --property capabilities='profile:control,boot_option:local' 1a4e30da-b6dc-499d-ba87-0bd8a3819bc0
+#tag compute nodes: nodes cougar01/07
+openstack baremetal node set --property capabilities='profile:compute,boot_option:local' $(openstack baremetal node list | grep cougar01 | awk {'print $2'})
+openstack baremetal node set --property capabilities='profile:compute,boot_option:local' $(openstack baremetal node list | grep cougar07 | awk {'print $2'})
+
+#tag controller nodes cougar08/09/16
+openstack baremetal node set --property capabilities='profile:control,boot_option:local' $(openstack baremetal node list | grep cougar08 | awk {'print $2'})
+openstack baremetal node set --property capabilities='profile:control,boot_option:local' $(openstack baremetal node list | grep cougar09 | awk {'print $2'})
+openstack baremetal node set --property capabilities='profile:control,boot_option:local' $(openstack baremetal node list | grep cougar16 | awk {'print $2'})
 
 
 
 #6.7. Creating an environment file that defines node counts and flavors
-#bring file..
+#bring file.
 
