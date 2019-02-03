@@ -14,7 +14,7 @@
 yum remove puppet* -y
 
 # All step numbers reference install guide:
-#https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/14-beta/html/director_installation_and_usage/preparing-for-director-installation#preparing-the-undercloud
+# https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/14-beta/html/director_installation_and_usage/preparing-for-director-installation#preparing-the-undercloud
 
 # 3.1. Preparing the undercloud
 #create user stack pass stack

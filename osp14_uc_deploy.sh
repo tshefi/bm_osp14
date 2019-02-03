@@ -49,7 +49,7 @@ openstack undercloud install
 
 #4.4. Obtaining images for overcloud nodes
 source ~/stackrc
-sudo yum install rhosp-director-images rhosp-director-images-ipa
+sudo yum install rhosp-director-images rhosp-director-images-ipa -y
 cd ~/images
 for i in /usr/share/rhosp-director-images/overcloud-full-latest-14.0.tar /usr/share/rhosp-director-images/ironic-python-agent-latest-14.0.tar; do tar -xvf $i; done
 openstack overcloud image upload --image-path /home/stack/images/
