@@ -12,17 +12,6 @@ mkdir ~/images
 mkdir ~/templates
 mkdir ~/bm
 
-
-#get file
-wget http://file.tlv.redhat.com/~tshefi/bm/instackenvAll.json
-cd ~/bm
-wget http://file.tlv.redhat.com/~tshefi/bm/bm/nodes_data.yaml
-wget http://file.tlv.redhat.com/~tshefi/bm/bm/debug.yaml
-wget http://file.tlv.redhat.com/~tshefi/bm/bm/extra_templates.yaml
-
-cd ~
-wget http://file.tlv.redhat.com/~tshefi/bm/overcloud_deploy.sh
-
 sudo yum install -y python-tripleoclient
 #Needed only if we deploy with ceph, but doesn't hurt to add now.
 sudo yum install -y ceph-ansible
@@ -30,7 +19,7 @@ sudo yum install -y ceph-ansible
 
 #3.2. Preparing container images
 openstack tripleo container image prepare default --local-push-destination --output-env-file containers-prepare-parameter.yaml
-
+# ^this is the default external client path, I need to "patch" it for internal use
 
 
 
@@ -61,6 +50,7 @@ openstack subnet set $( openstack subnet list  | awk '{print $2}' | grep "-") --
 
 
 #6.1. Registering Nodes for the Overcloud
+wget http://file.tlv.redhat.com/~tshefi/bm/instackenvAll.json
 openstack overcloud node import ~/instackenvAll.json
 
 
@@ -83,4 +73,10 @@ openstack baremetal node set --property capabilities='profile:control,boot_optio
 
 #6.7. Creating an environment file that defines node counts and flavors
 #bring file.
+cd ~/bm
+wget http://file.tlv.redhat.com/~tshefi/bm/bm/nodes_data.yaml
+wget http://file.tlv.redhat.com/~tshefi/bm/bm/debug.yaml
+wget http://file.tlv.redhat.com/~tshefi/bm/bm/extra_templates.yaml
+cd ~
+wget http://file.tlv.redhat.com/~tshefi/bm/overcloud_deploy.sh
 
